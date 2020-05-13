@@ -1,0 +1,62 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="card">
+		<div class="card-header mb-3">
+			<h4 class="mt-2 float-left">User Profile</h4>
+			<h4 class=" mt-1 float-right"><a class="btn btn-danger" href="/forgot">Reset Password <i class="fas fa-power-off"></i></a></h4>
+			<h4 class=" mt-1 mr-2 float-right"><a class="btn btn-success text-white" href="#">Follow <i class="fas fa-plus"></i></a></h4>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-lg-4">
+					<img style="width: 100%;" src=" <%= user.avatar %>"  alt=" Avatar Image">
+				</div>
+				
+				<div class="col-lg-8 pl-4 pt-1 ">
+					<p class="mb-1 user-profile">Name - <%= user.firstname + " " + user.lastname %> </p>
+					<p class="mb-1 user-profile">
+						E-Mail - <a href=" mailto:<%= user.email %>" ><%= user.email %></a>
+					</p>
+					<p class="mb-1 user-profile">
+						Username - <%= user.username %>
+					</p>
+					<p class="mb-1 user-profile">
+						Password - ##########
+					</p>
+					<p class="mb-1 user-profile">
+						Active Since - 22 March, 2020
+					</p>
+					<p class=" mb-0 user-profile">
+						<% if(user.isAdmin){ %>
+							Status - Admin
+						<% } else { %>
+							Status - User
+						<% } %>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card my-5">
+		<div class="card-header mb-3">
+			<h4 class="float-left">Submitted Campgrounds</h4>
+		</div>
+	  <div class="row no-gutters mx-3 justify-content-around">
+		<% campgrounds.forEach(function(campground) { %>
+			<div class="col-md-4 mb-3"> 
+			  <img src="<%= campground.image %>" class="card-img" alt="<%= campground.name %>">
+			</div>
+			<div class="col-md-8 ">
+			  <div class="card-body">
+				  <h3 class="card-title text-center"><a href="/campgrounds/<%= campground.id %>"><%= campground.name %> </a></h3>
+				<p class="card-text text-center"><%= campground.description %></p>
+				<p class="card-text text-center"><small class="text-muted"> <%= moment(campground.createdAt).fromNow() %></small></p>
+			  </div>
+			</div>
+		<% }) %>
+	  </div>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

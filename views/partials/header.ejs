@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yelpcamp!</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/a243bcb0fc.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/stylesheets/main.css">
+		
+		
+	<body style=" background-color: #DDD7D1;
+background-image: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');">
+			
+		   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 mt-0 pt-0">
+			   <a class="navbar-brand" href="/"><i class="fas fa-campground"></i> YelpCamp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item  <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+            <a href="/campgrounds" class="nav-link mx-1"><i class="fas fa-home"></i> Home</a>
+          </li>
+		  <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+            <a href="#" class="nav-link mx-1"><i class="far fa-comments"></i> Feedback</a>
+          </li>
+		  <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+            <a href="/campgrounds/new" class="nav-link mx-1"><i class="fas fa-plus"></i> Add new Campsite </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+            <% if(!currentUser){ %>
+                <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
+                  <a href="/login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
+                  <a href="/register" class="nav-link mr-2">Sign Up</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Signed in As <%= currentUser.username %></a>
+                </li>
+                <li class="nav-item">
+                  <a href="/logout" class="nav-link mr-2">Logout</a>
+                </li>
+            <% } %>
+        </ul>
+      </div>
+    </nav>
+		
+		<div class="container">
+			<% if(success && success.length > 0){ %>
+				<div class="alert alert-success" role="alert">
+					<%= success %>
+				</div>
+			<% } %>
+			<% if(error && error.length > 0){ %>
+				<div class="alert alert-danger" role="alert">
+					<%= error %>
+				</div>
+			<% } %>
+			<% if(info && info.length > 0){ %>
+				<div class="alert alert-info" role="alert">
+					<%= info %>
+				</div>
+			<% } %>
+		</div>
+		
+		

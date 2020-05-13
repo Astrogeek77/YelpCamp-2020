@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+    
+    <div id="landing-header" class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Welcome to YelpCamp!</h1>
+				<form action="/campgrounds" method="GET" class="form-inline my-2 my-lg-0">
+					  <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search Campgrounds" aria-label="Search">
+					  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+				<h3 class="text-center text-warning my-4">
+					OR
+				</h3>
+				<a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+			</div>
+		</div>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+	  <li></li>
+	  <li></li>	
+    </ul>
+
+
