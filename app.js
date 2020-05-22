@@ -22,6 +22,10 @@ var express = require("express"),
 // ================
 mongoose.connect("mongodb+srv://admin:admin@cluster0-kzg9b.mongodb.net/test?retryWrites=true&w=majority");
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 app.use(bodyParser.urlencoded({extended: true})); 
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
@@ -30,10 +34,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 // moment config
 app.locals.moment = require('moment');
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+
 
 
 // ================
