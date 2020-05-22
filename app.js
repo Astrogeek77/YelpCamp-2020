@@ -20,7 +20,7 @@ var express = require("express"),
 // ================
 // Mongoose config
 // ================
-mongoose.connect("mongodb+srv://admin:admin@cluster0-kzg9b.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin:admin@cluster0-kzg9b.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false });
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
