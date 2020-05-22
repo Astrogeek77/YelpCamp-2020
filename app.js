@@ -30,6 +30,10 @@ app.use(methodOverride("_method"));
 app.use(flash());
 // moment config
 app.locals.moment = require('moment');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 
 // ================
